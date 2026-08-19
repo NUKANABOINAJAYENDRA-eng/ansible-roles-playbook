@@ -8,10 +8,11 @@
 - name: Enable redis
   ansible.builtin.command: module enable redis:remi-6.2 -y
 
-
 - name: install redis repo
   apt:
-    name: "redis-server,redis-tools"
+    name:
+      - redis-server
+      - redis-tools
     state: present
 
 
