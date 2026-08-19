@@ -7,7 +7,8 @@
   ansible.builtin.systemd:
    daemon_reload: yes
    state: restarted
-   name: "{{ component }}: host"
+   enabled: yes
+   name: "{{ component }}"
 
 
 
