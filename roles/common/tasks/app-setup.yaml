@@ -12,22 +12,19 @@
 
 
 
-- name: Create /app directory
-  ansible.builtin.file:
-    path: /app
-    state: directory
 
 
-    
+
+
 - name: check /app directory exist or not
   ansible.builtin.stat:
    path: /app
   register: app_directory
   
 
-#- name: print the directory stats
- # ansible.builtin.debug:
-  # msg: "output: {{directory}}"
+- name: print the directory stats
+  ansible.builtin.debug:
+   msg: "output: {{directory}}"
 
 
 
@@ -46,6 +43,6 @@
   
 - name: extract {{ component }} artifact
   ansible.builtin.unarchive:
-   src: /tmp/{{ component }}.zip
+   src: /tmp
    dest: /app
    remote_src: yes
