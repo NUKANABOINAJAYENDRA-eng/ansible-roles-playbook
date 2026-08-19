@@ -13,7 +13,7 @@
 - name: check /app directory exist or not
   ansible.builtin.stat:
    path: /app
-  register: directory
+  register: app_dir
 
 - name: print the directory stats
   ansible.builtin.debug:
