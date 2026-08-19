@@ -1,0 +1,10 @@
+- name: copy {{ component }} service
+  ansible.builtin.copy:
+   src: {{ component }}.service
+   dest: /etc/yum.repos.d/{{ component }}.service
+
+- name: demon reload
+  ansible.builtin.systemd:
+   demon_reload: true
+   state: restarted
+   name: "{{ component }}"
