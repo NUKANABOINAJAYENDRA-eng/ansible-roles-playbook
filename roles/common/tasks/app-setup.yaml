@@ -43,6 +43,6 @@
   
 - name: extract {{ component }} artifact
   ansible.builtin.unarchive:
-   src: /tmp
+   src: /tmp/{{ component }}.zip
    dest: /app
    remote_src: yes
