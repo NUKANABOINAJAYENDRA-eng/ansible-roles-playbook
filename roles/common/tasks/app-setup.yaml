@@ -22,11 +22,11 @@
 
 
 #write this only when directory.stat.exist == 'Flase' othere wise don't use this
-- when: directory.stat.exist == Flase\n
-  name: create /app directory
-  ansible.builtin.file:
-   path: /app
-   state: directory
+#- when: directory.stat.exist == Flase\n
+ # name: create /app directory
+  #ansible.builtin.file:
+   #path: /app
+   #state: directory
   
 - name: "download {{ component }} artifact"
   ansible.builtin.get_url:
