@@ -11,9 +11,9 @@
 
 - name: install redis repo
   ansible.builtin.yum:
-    name:
-      - redis
-    state: present
+   name:
+    - redis
+   state: present
 
 
 - name: allow remote connections to redis
@@ -26,4 +26,4 @@
   ansible.builtin.service:
    name: redis
    state: started
-   enableds: yes
+   enabled: yes
