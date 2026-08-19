@@ -1,6 +1,6 @@
 - name: copy {{ component }} service
   ansible.builtin.copy:
-   src: {{ component }}.service
+   src: "{{ component }}.service"
    dest: /etc/yum.repos.d/{{ component }}.service
 
 - name: demon reload
