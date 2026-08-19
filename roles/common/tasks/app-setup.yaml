@@ -40,6 +40,11 @@
    url: "https://roboshop-builds.s3.amazonaws.com/{{ component }}.zip"
    dest: /tmp
 
+
+- name: install unzip
+  ansible.builtin.yum:
+   name: unzip
+   state: present
   
 - name: extract {{ component }} artifact
   ansible.builtin.unarchive:
