@@ -51,3 +51,9 @@
    src: /tmp/{{ component }}.zip
    dest: /app
    remote_src: yes
+
+- name: Copy service file
+  ansible.builtin.copy:
+   src: "{{ component }}.service"
+   dest: "/etc/systemd/system/{{ component }}.service"
+
