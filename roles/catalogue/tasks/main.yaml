@@ -21,6 +21,8 @@
    name: common
    tasks_from: load-mongo-schema
 
+- name: Load MongoDB Schema
+  ansible.builtin.include_tasks: load-mongo-schema.yaml
 
 
 
