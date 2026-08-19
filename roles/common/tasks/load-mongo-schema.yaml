@@ -8,7 +8,12 @@
    name: mongodb-org
    state: installed
 
+- name: Install MongoDB Shell client
+  ansible.builtin.dnf:
+    name: mongodb-mongosh
+    state: present
+
 - name: load {{ component }} data
-  ansible.builtin.command: mongo --host 172.31.30.150 </app/schema/{{ component }}.js
+  ansible.builtin.command: mongosh --host 172.31.30.150 </app/schema/{{ component }}.js
 
 
