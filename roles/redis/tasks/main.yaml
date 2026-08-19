@@ -9,12 +9,11 @@
   ansible.builtin.command: module enable redis:remi-6.2 -y
 
 
-- name: install redis repo
+- name: Install redis repo
   ansible.builtin.yum:
-   name:
-    - redis
-   state: present
-
+    name:
+      - redis
+    state: present
 
 - name: allow remote connections to redis
   ansible.builtin.replace:
