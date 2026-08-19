@@ -11,3 +11,4 @@
 - name: load {{ component }} data
   ansible.builtin.command: mongo --host 172.31.30.150 </app/schema/{{ component }}.js
 
+
