@@ -19,14 +19,12 @@
 - name: load schema
   ansible.builtin.import_role:
    name: common
-   tasks_from: load-mongo-schema
+   tasks_from: load-mongo-schema.yaml
 
-- name: Load MongoDB Schema
-  ansible.builtin.include_tasks: load-mongo-schema.yaml
 
 
 
 - name: setup application
   ansible.builtin.import_role:
    name: common
-   tasks_from: systemd-setup
+   tasks_from: systemd-setup.yaml
