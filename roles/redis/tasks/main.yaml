@@ -9,6 +9,10 @@
     update_cache: yes
   become: yes
 
+- name: install  python3-apt 
+  ansible.builtin.yum:
+   name: python3-apt
+   state: present
 
 
 - name: Install redis repo
