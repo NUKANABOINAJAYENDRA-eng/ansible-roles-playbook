@@ -4,6 +4,12 @@
    upgrade: dist
   become: yes
 
+- name: Update cache
+  ansible.builtin.apt:
+    update_cache: yes
+  become: yes
+
+
 
 - name: Install redis repo
   ansible.builtin.yum:
