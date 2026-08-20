@@ -19,11 +19,19 @@
     name: epel-release
     state: present
 
-- name: install redis repo
-  ansible.builtin.yum:
-    name: "https://remirepo.net{{ ansible_facts['distribution_major_version'] }}.rpm"
-    state: installed
-    disable_gpg_check: true
+- name: Attempt Repository Setup based on exact OS version Match
+  block:
+    - name: install redis repo
+      ansible.builtin.yum:
+        name: "https://remirepo.net"
+        state: installed
+        disable_gpg_check: true
+  rescue:
+    - name: install redis repo
+      ansible.builtin.yum:
+        name: "https://rpms.remirepo.net/enterprise/remi-release-9.rpm"
+        state: installed
+        disable_gpg_check: true
 
 - name: Enable redis
   ansible.builtin.command: module enable redis:remi-7.2 -y
