@@ -1,3 +1,9 @@
+- name: clean cache memory
+  ansible.builtin.command:
+   cmd: dnf clean all
+   
+
+
 - name: install epel-release
   ansible.builtin.yum:
    name: epel-release
