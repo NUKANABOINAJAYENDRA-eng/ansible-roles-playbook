@@ -6,7 +6,7 @@
   
 
 - name: Enable redis
-  ansible.builtin.command: module enable redis:remi-6.2 -y
+  ansible.builtin.command: module enable redis:remi-7.2 -y
 
 
 - name: Install redis repo
