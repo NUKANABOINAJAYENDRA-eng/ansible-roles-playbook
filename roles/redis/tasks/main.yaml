@@ -5,13 +5,15 @@
    disable_gpg_check: true
   
 
-- name: Enable redis
-  ansible.builtin.command: module enable redis:remi-7.2 -y
-
 - name: install epel-release
   ansible.builtin.yum:
    name: epel-release
    state: present
+
+
+
+- name: Enable redis
+  ansible.builtin.command: module enable redis:remi-7.2 -y
 
 - name: Install redis repo
   ansible.builtin.yum:
