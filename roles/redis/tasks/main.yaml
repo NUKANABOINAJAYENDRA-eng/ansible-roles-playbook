@@ -1,5 +1,5 @@
 - name: update and upgrade apt packages
-  ansible.builtin.apt:
+  ansible.builtin.apt-get:
    update_cache: yes
    upgrade: dist
   become: yes
