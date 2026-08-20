@@ -4,6 +4,20 @@
    tasks_from: nodejs
 
 
+- name: Ensure /app directory exists
+  ansible.builtin.file:
+    path: /app
+    state: directory
+    
+
+# --- Your existing tasks below this line ---
+- name: Copy or extract application files
+  ansible.builtin.copy:  # Or unarchive, template, etc.
+    src: your_source_files
+    dest: /app
+
+
+
 - name: setup application
   ansible.builtin.import_role:
    name: common
