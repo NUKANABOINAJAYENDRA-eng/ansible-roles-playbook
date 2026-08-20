@@ -15,14 +15,13 @@
 
 
 
-- name: Check if /app directory exists
-  ansible.builtin.stat:
-    path: /app
-  register: directory
 
-- name: Debug the result (Optional)
-  ansible.builtin.debug:
-    msg: "Directory exists is {{ directory.stat.exists }}"
+- name: check /app directory exist or not
+  ansible.builtin.stat:
+   path: /app
+  register: directory
+  
+
 - name: print the directory stats
   ansible.builtin.debug:
    msg: "output: {{directory}}"
