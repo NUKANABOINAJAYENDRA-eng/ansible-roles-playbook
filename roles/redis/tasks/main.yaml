@@ -1,44 +1,9 @@
-- name: Fix DNS resolver if target machine cannot reach the internet
-  ansible.builtin.shell: echo "nameserver 8.8.8.8" > /etc/resolv.conf
+- name: update and upgrade apt packages
+  ansible.builtin.apt:
+   update_cache: yes
+   upgrade: dist
+  become: yes
 
-
-# --- FIXED: Added SWAP allocation to stop the RC 137 Out-of-Memory Crash ---
-- name: Create 1GB Swap file to prevent Out of Memory crash
-  ansible.builtin.shell: |
-    if [ ! -f /swapfile ]; then
-      dd if=/dev/zero of=/swapfile bs=1M count=1024
-      chmod 600 /swapfile
-      mkswap /swapfile
-      swapon /swapfile
-    fi
-  args:
-    creates: /swapfile
-
-- name: clean cache memory
-  ansible.builtin.command:
-    cmd: dnf clean all
-
-- name: install epel-release
-  ansible.builtin.yum:
-    name: epel-release
-    state: present
-
-- name: Attempt Repository Setup based on exact OS version Match
-  block:
-    - name: install redis repo
-      ansible.builtin.yum:
-        name: "https://remirepo.net"
-        state: installed
-        disable_gpg_check: true
-  rescue:
-    - name: install redis repo
-      ansible.builtin.yum:
-        name: "https://rpms.remirepo.net/enterprise/remi-release-9.rpm"
-        state: installed
-        disable_gpg_check: true
-
-- name: Enable redis
-  ansible.builtin.command: module enable redis:remi-7.2 -y
 
 - name: Install redis repo
   ansible.builtin.yum:
