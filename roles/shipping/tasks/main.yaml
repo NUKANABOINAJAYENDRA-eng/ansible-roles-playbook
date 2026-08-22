@@ -7,7 +7,7 @@
 - name: setup application
   ansible.builtin.import_role:
    name: common
-   tasks: app-setup
+   tasks_from: app-setup
 
 
 - name: install dependencies
