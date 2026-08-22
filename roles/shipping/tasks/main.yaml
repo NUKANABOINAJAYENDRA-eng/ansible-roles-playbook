@@ -32,5 +32,3 @@
    name: common
    tasks_from: systemd-setup
 
-
-
