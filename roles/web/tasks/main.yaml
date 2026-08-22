@@ -11,12 +11,12 @@
 
 - name: remove html directory
   ansible.builtin.file:
-   path: /var/www/html/
+   path: /roboshop.conf
    state: absent
 
 - name: create html directory
   ansible.builtin.file:
-   path: /var/www/html/
+   path: /roboshop.conf
    state: directory
 
 - name: download web artifact
@@ -34,7 +34,7 @@
 - name: extract web artifact
   ansible.builtin.unarchive:
    src: /tmp/web.zip
-   dest: /var/www/html/
+   dest: /roboshop.conf
    remote_src: yes
 
   
